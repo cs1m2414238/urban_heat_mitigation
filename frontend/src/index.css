@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 20px;
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.telemetry-header {
+  border-bottom: 1px solid #334155;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.telemetry-header h1 {
+  margin: 0 0 5px 0;
+}
+
+.telemetry-header p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.metric-card, .sidebar-controls, .map-dashboard, .optimizer-panel, .model-validator, .driver-analysis {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin: 0;
+  color: #38bdf8;
+}
