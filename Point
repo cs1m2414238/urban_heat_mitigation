@@ -1,0 +1,77 @@
+⚠️ 2. Sentinel-2 Cloud Mask
+
+This line:
+
+var qa = image.select('QA60');
+
+works, but QA60 has some missing values in newer Sentinel-2 imagery.
+
+For the hackathon it's acceptable, so you can keep it.
+
+
+ECO_L2T_LSTE v003 is precisely what you need for high-resolution 70-meter Land Surface Temperature (LST).
+
+Fantastic! Seeing 26 granules confirms your authentication is working perfectly now.
+
+The reason they appeared for 2019 but not for 2024 is due to the International Space Station's orbital paths. The ISS doesn't pass over the exact same spot on earth at regular intervals like standard satellites. In 2019, it had 26 perfect passes over your target area during your summer window, whereas its 2024 path missed that exact spatial box during those exact months.
+
+For your machine learning model (XGBoost), using this 2020 data is perfectly fine! It still provides the exact micro-urban heat island variations and structural thermal footprints your model needs to learn cooling mitigation strategies.
+
+
+bengluru 
+chennai 
+mysuru 
+
+
+Yes, you can, but it depends on what you are training the model to do.
+
+Option 1 (Recommended): Train only on 2019 Bengaluru
+Download 2019 Landsat 8 for Bengaluru.
+Download the 2019 ECOSTRESS scene for the same area and as close a date as possible.
+Create a dataset where:
+Input features: NDVI, NDBI, NDWI, LULC, DEM, ERA5 weather, etc. (from 2019)
+Target: ECOSTRESS LST (2019)
+
+This is scientifically sound because all data represent roughly the same period.
+
+Then you can test the trained model on 2019 data or use it as a proof of concept.
+
+Option 2: Train on 2019, Predict for 2024
+
+You can train on 2019 and then apply the model to 2024 features.
+
+This is possible, but you should understand the limitation:
+
+The model assumes the relationship between vegetation, built-up area, weather, etc., and LST has remained similar from 2019 to 2024.
+Changes in urban development may reduce prediction accuracy.
+
+You should describe this in your methodology.
+
+Option 3 (Not Recommended)
+
+Train using:
+
+2019 ECOSTRESS LST
+2024 Landsat LST
+Mix them into one training dataset
+
+This is not recommended, because the target variable comes from different years and conditions. The model may learn inconsistent patterns.
+
+For your ISRO hackathon
+
+I would recommend:
+
+Main model: Train on the consistent 2024 Landsat-based dataset for Delhi, Kanpur, Lucknow, and Bengaluru.
+Validation study: Use the 2019 Bengaluru Landsat + ECOSTRESS pair to demonstrate that your workflow aligns well with higher-resolution ECOSTRESS observations.
+
+This lets you:
+
+✔ Use all four cities consistently.
+✔ Include ECOSTRESS as requested.
+✔ Avoid introducing temporal inconsistencies into your main model.
+
+This approach is much stronger from a scientific and evaluation standpoint than mixing 2019 and 2024 data in a single training set.
+
+
+
+

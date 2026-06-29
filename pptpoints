@@ -1,0 +1,102 @@
+Building Density: The total count of buildings within a specific radius (e.g., 500 meters) of the sample point.Building Coverage Ratio (BCR): The percentage of land area covered by building structures inside that radius ($BCR = \frac{\text{Building Area}}{\text{Total Buffer Area}} \times 100$).Road Density: The total linear length (in meters) of all roads within the radius divided by the buffer area.Distance to Nearest Road: The exact distance from the sample point to the closest street line string.
+Run this script in your local environment. It reads the Merged_ML_Dataset.csv you generated from GEE, cross-references it with your OSM GeoJSON files, and appends the new morphology columns.
+
+current Status 
+
+✅ Completed
+✔ Landsat 8/9 features (LST, NDVI, NDBI, NDWI)
+✔ Sentinel-2 NDVI
+✔ ESA WorldCover (LULC)
+✔ ERA5 weather (Air Temp, RH, Wind Speed)
+✔ DEM (Elevation)
+✔ GHSL Built-up
+✔ OSM Buildings
+✔ OSM Roads
+
+Next Step 1: Generate Urban Morphology Features (Python)
+
+The GeoJSON files themselves are not ML features. Convert them into numerical features such as:
+
+Building Density
+Road Density
+Distance to Road
+Building Coverage Ratio
+Intersection Density (optional)
+
+The output should be a CSV like:
+
+Latitude	Longitude	BuildingDensity	RoadDensity
+Next Step 2: Merge Everything
+
+Combine:
+
+GEE CSV
+OSM Features CSV
+
+into one master dataset.
+
+Example:
+
+LST	NDVI	NDBI	NDWI	LULC	RH	Wind	BuildingDensity	RoadDensity
+Next Step 3: Train XGBoost
+
+Split the data:
+
+80% Training
+20% Testing
+
+Train:
+
+X = dataset.drop("LST", axis=1)
+y = dataset["LST"]
+
+Evaluate using:
+
+RMSE
+MAE
+R² Score
+Next Step 4: Explain the Model
+
+Use SHAP:
+
+import shap
+
+Generate:
+
+Feature importance
+SHAP summary plot
+
+This makes your project much stronger.
+
+Next Step 5: Predict Future Heat
+
+Generate predictions for:
+
+Existing city
+Scenario with increased vegetation
+Scenario with reduced built-up density
+
+Show how LST changes.
+
+Next Step 6: Build the Web Dashboard
+
+Suggested stack:
+
+Backend: Spring Boot
+Database: PostgreSQL + PostGIS
+Frontend: React (or Leaflet/OpenLayers)
+Maps: Leaflet
+ML: Python + FastAPI or Flask
+
+The dashboard can show:
+
+Heat map
+Building density
+Vegetation
+Predicted LST
+Suggested mitigation measures
+My recommendation
+
+Your next task should be generating urban morphology features (Building Density, Road Density, etc.) from the OSM GeoJSON files. Those are the last major missing ML features before training the XGBoost model.
+
+After that, you'll be ready to merge all datasets and start model training.

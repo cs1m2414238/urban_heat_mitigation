@@ -1,0 +1,18 @@
+# Python build artifacts
+__pycache__/
+*.py[cod]
+
+# Local datasets and spatial files (too large for git)
+*.csv
+*.geojson
+*.gpkg
+*.shp
+*.dbf
+*.shx
+*.prj
+ml/dataset_osm/
+dataset_osm/
+datasetcsv/
+
+# Local cache directories
+cache/
