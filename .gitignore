@@ -9,10 +9,20 @@ __pycache__/
 *.shp
 *.dbf
 *.shx
+*.pdf
+*.txt
 *.prj
 ml/dataset_osm/
 dataset_osm/
 datasetcsv/
+ml/checkpoints/
 
 # Local cache directories
 cache/
+
+# Presentation and temporary working notes
+PPTdaigram/
+pptdaigram/
+Point
+Problem
+pptpoints
