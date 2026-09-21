@@ -26,6 +26,9 @@ Python-based API backend service built using **FastAPI** to compute physics-info
 
 ## API Endpoints
 
-* **`GET /api/presets`**: Returns default satellite layout profiles.
-* **`POST /api/predict`**: Calculates predicted LST using physics-informed algorithms.
-* **`POST /api/optimize`**: Resolves optimal location placement budgets.
+* **`GET /api/thermal-field?city=Delhi`**: Returns the complete observed LST point field for a city.
+* **`GET /api/hotspots?city=Delhi`**: Returns the separate P75+ city-percentile anomaly layer.
+* **`GET /api/hotspots/{id}`**: Returns one hotspot and its local thermal drivers.
+* **`POST /api/predict`**: Calculates predicted LST using the trained model.
+* **`POST /api/simulate-intervention`**: Estimates counterfactual cooling for a selected hotspot.
+* **`POST /api/optimize`**: Resolves intervention placement under a budget.

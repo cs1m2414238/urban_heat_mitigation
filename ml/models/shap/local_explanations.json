@@ -1,0 +1,129 @@
+{
+  "hotspot": {
+    "archetype": "Severe Urban Heat Hotspot",
+    "city": "Delhi",
+    "latitude": 28.427501576311705,
+    "longitude": 76.85298359734276,
+    "actual_lst": 56.676930080000034,
+    "predicted_lst": 55.75814437866211,
+    "base_value_lst": 44.159454345703125,
+    "warming_drivers_top": [
+      {
+        "feature": "NDBI",
+        "feature_value": 0.17623465,
+        "shap_impact_degC": 3.073
+      },
+      {
+        "feature": "RH",
+        "feature_value": 26.68674533618496,
+        "shap_impact_degC": 2.344
+      },
+      {
+        "feature": "Distance_to_Road",
+        "feature_value": 28506.60026395107,
+        "shap_impact_degC": 1.283
+      },
+      {
+        "feature": "Distance_to_Water",
+        "feature_value": 27920.98476257785,
+        "shap_impact_degC": 1.232
+      },
+      {
+        "feature": "DistToVeg",
+        "feature_value": 436.8065933568311,
+        "shap_impact_degC": 1.039
+      }
+    ],
+    "cooling_drivers_top": [
+      {
+        "feature": "Building_Density",
+        "feature_value": 0.0,
+        "shap_impact_degC": -0.072
+      },
+      {
+        "feature": "Impervious_Surface_Ratio",
+        "feature_value": 0.0,
+        "shap_impact_degC": -0.053
+      },
+      {
+        "feature": "Mean_Building_Area",
+        "feature_value": 0.0,
+        "shap_impact_degC": -0.006
+      },
+      {
+        "feature": "AirTemp",
+        "feature_value": 32.921629178082526,
+        "shap_impact_degC": -0.004
+      },
+      {
+        "feature": "Intersection_Density",
+        "feature_value": 0.0,
+        "shap_impact_degC": -0.003
+      }
+    ]
+  },
+  "cool_refuge": {
+    "archetype": "Urban Cool Refuge",
+    "city": "Bengaluru",
+    "latitude": 13.153087474313828,
+    "longitude": 77.49033829142556,
+    "actual_lst": 28.842284210000003,
+    "predicted_lst": 28.319440841674805,
+    "base_value_lst": 44.159454345703125,
+    "warming_drivers_top": [
+      {
+        "feature": "Distance_to_Park",
+        "feature_value": 8780.758709043046,
+        "shap_impact_degC": 0.146
+      },
+      {
+        "feature": "DistToVeg",
+        "feature_value": 465.7252408878008,
+        "shap_impact_degC": 0.092
+      },
+      {
+        "feature": "Water_Coverage_Ratio",
+        "feature_value": 0.0,
+        "shap_impact_degC": 0.083
+      },
+      {
+        "feature": "Distance_to_Water",
+        "feature_value": 8123.280374865178,
+        "shap_impact_degC": 0.051
+      },
+      {
+        "feature": "Intersection_Density",
+        "feature_value": 0.0,
+        "shap_impact_degC": 0.006
+      }
+    ],
+    "cooling_drivers_top": [
+      {
+        "feature": "NDWI",
+        "feature_value": 0.36340147,
+        "shap_impact_degC": -6.041
+      },
+      {
+        "feature": "NDBI",
+        "feature_value": -0.15176545,
+        "shap_impact_degC": -3.568
+      },
+      {
+        "feature": "S2_NDVI",
+        "feature_value": -0.35211268,
+        "shap_impact_degC": -1.512
+      },
+      {
+        "feature": "RH",
+        "feature_value": 57.13569681544608,
+        "shap_impact_degC": -0.971
+      },
+      {
+        "feature": "DEM",
+        "feature_value": 855.0,
+        "shap_impact_degC": -0.765
+      }
+    ]
+  },
+  "definition": "Mean absolute SHAP value represents the average magnitude of that feature's contribution to the model prediction."
+}

@@ -1,0 +1,108 @@
+{
+  "baseline_random_split": {
+    "description": "Random 80/20 train/test split stratified by city",
+    "r2": 0.8904,
+    "rmse": 1.496,
+    "mae": 1.1296
+  },
+  "spatial_block_cv": {
+    "description": "5-Fold GroupKFold on 4x4 spatial blocks per city",
+    "mean_r2": 0.7918841613126751,
+    "std_r2": 0.0351173490163936,
+    "mean_rmse": 2.00350176254826,
+    "std_rmse": 0.190418555818128,
+    "mean_mae": 1.516612686882977,
+    "std_mae": 0.13657321027677,
+    "folds": [
+      {
+        "fold": 1,
+        "r2": 0.7984614893499342,
+        "rmse": 2.307272087319738,
+        "mae": 1.76945582688186
+      },
+      {
+        "fold": 2,
+        "r2": 0.8196883146161189,
+        "rmse": 1.8254051132886329,
+        "mae": 1.403297204990002
+      },
+      {
+        "fold": 3,
+        "r2": 0.7955655170782763,
+        "rmse": 2.140119355412089,
+        "mae": 1.546558520572421
+      },
+      {
+        "fold": 4,
+        "r2": 0.8208728773912659,
+        "rmse": 1.8263203602172486,
+        "mae": 1.4070387533488984
+      },
+      {
+        "fold": 5,
+        "r2": 0.72483260812778,
+        "rmse": 1.9183918965035927,
+        "mae": 1.4567131286217032
+      }
+    ]
+  },
+  "leave_one_city_out_cv": {
+    "description": "Train on 3 cities, test on 4th unseen city",
+    "mean_r2": 0.5916008435433708,
+    "std_r2": 0.06177565087203394,
+    "mean_rmse": 2.743251810557587,
+    "std_rmse": 0.4740752913748668,
+    "mean_mae": 2.11544988226221,
+    "std_mae": 0.31113207921085956,
+    "cities": {
+      "Delhi": {
+        "test_samples": 20000,
+        "train_cities": [
+          "Kanpur",
+          "Lucknow",
+          "Bengaluru"
+        ],
+        "r2": 0.6441259437041009,
+        "rmse": 2.9299192313802527,
+        "mae": 2.3178539600431494,
+        "train_time": 6.543978452682495
+      },
+      "Kanpur": {
+        "test_samples": 15613,
+        "train_cities": [
+          "Delhi",
+          "Lucknow",
+          "Bengaluru"
+        ],
+        "r2": 0.6616986060702011,
+        "rmse": 2.3694921987881514,
+        "mae": 1.8580259519404339,
+        "train_time": 5.961602687835693
+      },
+      "Lucknow": {
+        "test_samples": 16899,
+        "train_cities": [
+          "Delhi",
+          "Kanpur",
+          "Bengaluru"
+        ],
+        "r2": 0.5363786846374503,
+        "rmse": 2.2422616118380096,
+        "mae": 1.7698213622658174,
+        "train_time": 5.37774133682251
+      },
+      "Bengaluru": {
+        "test_samples": 18083,
+        "train_cities": [
+          "Delhi",
+          "Kanpur",
+          "Lucknow"
+        ],
+        "r2": 0.5242001397617311,
+        "rmse": 3.4313342002239353,
+        "mae": 2.5160982547994393,
+        "train_time": 5.631897687911987
+      }
+    }
+  }
+}

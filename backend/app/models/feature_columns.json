@@ -1,0 +1,35 @@
+{
+  "target": "LST",
+  "features": [
+    "NDVI",
+    "S2_NDVI",
+    "NDBI",
+    "NDWI",
+    "LULC",
+    "DistToVeg",
+    "GHSL",
+    "DEM",
+    "AirTemp",
+    "RH",
+    "WindSpeed",
+    "Building_Density",
+    "Building_Coverage_Ratio",
+    "Mean_Building_Area",
+    "Road_Density",
+    "Distance_to_Road",
+    "Impervious_Surface_Ratio",
+    "Intersection_Density",
+    "Park_Coverage_Ratio",
+    "Distance_to_Park",
+    "Water_Coverage_Ratio",
+    "Distance_to_Water",
+    "Forest_Coverage_Ratio",
+    "Distance_to_Forest"
+  ],
+  "metrics": {
+    "r2_train": 0.917010951741752,
+    "r2_test": 0.8903935075954674,
+    "rmse_test": 1.4959522001869283,
+    "mae_test": 1.1295906472051225
+  }
+}
